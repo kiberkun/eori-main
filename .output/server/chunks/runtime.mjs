@@ -3908,7 +3908,7 @@ const appConfig = defuFn(inlineAppConfig);
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "bb1600a2-1351-4b5e-a72b-858a809c5f2a",
+    "buildId": "a4e361fc-3149-4f39-b9a9-616fdf1e2f5b",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4778,7 +4778,7 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets$1);
 
-storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"C:\\Users\\New\\Desktop\\eori-main\\.data\\kv"}));
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"C:\\Users\\New\\Documents\\GitHub\\eori-main\\.data\\kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -5584,7 +5584,7 @@ function defineNitroPlugin(def) {
   return def;
 }
 
-const _vhs0VuRGT0 = defineNitroPlugin(async (nitroApp) => {
+const _SUeFMMSfFE = defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook("render:html", async (ctx, { event }) => {
     const routeOptions = getRouteRules(event);
     const isIsland = process.env.NUXT_COMPONENT_ISLANDS && event.path.startsWith("/__nuxt_island");
@@ -5600,7 +5600,7 @@ const _vhs0VuRGT0 = defineNitroPlugin(async (nitroApp) => {
 });
 
 const plugins = [
-  _vhs0VuRGT0
+  _SUeFMMSfFE
 ];
 
 const errorHandler = (async function errorhandler(error, event) {
@@ -5678,100 +5678,100 @@ const assets = {
   "/_nuxt/-ftrMJTh.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"d35-ZQ2FPNdDOMBW5OuYNm8FvDb8ESU\"",
-    "mtime": "2024-08-10T18:11:40.661Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 3381,
     "path": "../public/_nuxt/-ftrMJTh.js"
   },
   "/_nuxt/about-female.rtkYp5VC.png": {
     "type": "image/png",
     "etag": "\"1a0ff-2fU6axtnVMaeWDm6UpEeVpwdzM8\"",
-    "mtime": "2024-08-10T18:11:40.660Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 106751,
     "path": "../public/_nuxt/about-female.rtkYp5VC.png"
   },
   "/_nuxt/Br44YqbW.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"d33-DASSx+JTnpyYgD2iC5XAPLkFs/M\"",
-    "mtime": "2024-08-10T18:11:40.661Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 3379,
     "path": "../public/_nuxt/Br44YqbW.js"
   },
   "/_nuxt/C2I31WZN.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"bf-2aKOaA4qh+mooFl5j1+JgzL81eA\"",
-    "mtime": "2024-08-10T18:11:40.661Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 191,
     "path": "../public/_nuxt/C2I31WZN.js"
   },
   "/_nuxt/DkzdzrY4.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"26d30-R0Ljlnjwz1CI7Z+6TtqWBghkfug\"",
-    "mtime": "2024-08-10T18:11:40.659Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 159024,
     "path": "../public/_nuxt/DkzdzrY4.js"
   },
   "/_nuxt/DX_41NFy.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"3cd4-UfoawfcS0HWWJrsvqf/Bggz31yw\"",
-    "mtime": "2024-08-10T18:11:40.659Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 15572,
     "path": "../public/_nuxt/DX_41NFy.js"
   },
   "/_nuxt/entry.D9NrO_pT.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"3d-njmXzbFsOTiKwn6WwQNicrrETjE\"",
-    "mtime": "2024-08-10T18:11:40.660Z",
+    "mtime": "2024-08-10T18:40:17.076Z",
     "size": 61,
     "path": "../public/_nuxt/entry.D9NrO_pT.css"
   },
   "/_nuxt/ewh4c-oj.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"28b-Uv62tk5S79i6qGIGUQtGU1kDliQ\"",
-    "mtime": "2024-08-10T18:11:40.659Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 651,
     "path": "../public/_nuxt/ewh4c-oj.js"
   },
   "/_nuxt/logot.HSDoYlGm.png": {
     "type": "image/png",
     "etag": "\"6dce-0E0Ik8/LSkmGGxDHhrUufAQF9zQ\"",
-    "mtime": "2024-08-10T18:11:40.660Z",
+    "mtime": "2024-08-10T18:40:17.075Z",
     "size": 28110,
     "path": "../public/_nuxt/logot.HSDoYlGm.png"
   },
   "/_nuxt/profile-female.DZ_b7O9G.png": {
     "type": "image/png",
     "etag": "\"18902-TpcrNhxHtgwPpfDGcV2DB7RWBbY\"",
-    "mtime": "2024-08-10T18:11:40.660Z",
+    "mtime": "2024-08-10T18:40:17.076Z",
     "size": 100610,
     "path": "../public/_nuxt/profile-female.DZ_b7O9G.png"
   },
   "/_nuxt/project1.xKVXl1dN.png": {
     "type": "image/png",
     "etag": "\"1fef9-GDkCZgtzzOpnhThC6fyDnf6Xy9c\"",
-    "mtime": "2024-08-10T18:11:40.661Z",
+    "mtime": "2024-08-10T18:40:17.076Z",
     "size": 130809,
     "path": "../public/_nuxt/project1.xKVXl1dN.png"
   },
   "/_nuxt/project2.BO_5LZZK.png": {
     "type": "image/png",
     "etag": "\"160f9-ewQjHtGYJQEUlHc6z0P8pQ+BEG0\"",
-    "mtime": "2024-08-10T18:11:40.660Z",
+    "mtime": "2024-08-10T18:40:17.077Z",
     "size": 90361,
     "path": "../public/_nuxt/project2.BO_5LZZK.png"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-gcC3EpzusMIEvlfXioFOlny+CDg\"",
-    "mtime": "2024-08-10T18:11:41.576Z",
+    "etag": "\"47-fsdqs/43ZDvqOw82JlYIHKf6cG4\"",
+    "mtime": "2024-08-10T18:40:17.997Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/bb1600a2-1351-4b5e-a72b-858a809c5f2a.json": {
+  "/_nuxt/builds/meta/a4e361fc-3149-4f39-b9a9-616fdf1e2f5b.json": {
     "type": "application/json",
-    "etag": "\"8b-7vaGoX2u6XXVGtbzroJC0n1n4NQ\"",
-    "mtime": "2024-08-10T18:11:41.577Z",
+    "etag": "\"8b-gCriFSGayAIvMlYgtrV23raY8/k\"",
+    "mtime": "2024-08-10T18:40:17.997Z",
     "size": 139,
-    "path": "../public/_nuxt/builds/meta/bb1600a2-1351-4b5e-a72b-858a809c5f2a.json"
+    "path": "../public/_nuxt/builds/meta/a4e361fc-3149-4f39-b9a9-616fdf1e2f5b.json"
   }
 };
 
@@ -5968,7 +5968,7 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
-const _pyaGrh = defineEventHandler(async (e) => {
+const _Ud8zzl = defineEventHandler(async (e) => {
   if (e.context.siteConfig)
     return;
   const runtimeConfig = useRuntimeConfig(e);
@@ -6115,7 +6115,7 @@ function useSimpleSitemapRuntimeConfig(e) {
   return Object.freeze(clone);
 }
 
-const _DNDlZx = defineEventHandler(async (e) => {
+const _R6WqMb = defineEventHandler(async (e) => {
   const fixPath = createSitePathResolver(e, { absolute: false, withBase: true });
   const { sitemapName: fallbackSitemapName, cacheMaxAgeSeconds, version, xslColumns, xslTips } = useSimpleSitemapRuntimeConfig();
   setHeader(e, "Content-Type", "application/xslt+xml");
@@ -6902,7 +6902,7 @@ async function createSitemap(event, definition, runtimeConfig) {
   return ctx.sitemap;
 }
 
-const _n6uvPY = defineEventHandler(async (e) => {
+const _M8Fdwq = defineEventHandler(async (e) => {
   const runtimeConfig = useSimpleSitemapRuntimeConfig();
   const { sitemaps } = runtimeConfig;
   if ("index" in sitemaps) {
@@ -6911,15 +6911,15 @@ const _n6uvPY = defineEventHandler(async (e) => {
   return createSitemap(e, Object.values(sitemaps)[0], runtimeConfig);
 });
 
-const _lazy_To1JPn = () => import('./routes/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_eYzRWw = () => import('./routes/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_To1JPn, lazy: true, middleware: false, method: undefined },
-  { route: '', handler: _pyaGrh, lazy: false, middleware: true, method: undefined },
-  { route: '/__sitemap__/style.xsl', handler: _DNDlZx, lazy: false, middleware: false, method: undefined },
-  { route: '/sitemap.xml', handler: _n6uvPY, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_To1JPn, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_eYzRWw, lazy: true, middleware: false, method: undefined },
+  { route: '', handler: _Ud8zzl, lazy: false, middleware: true, method: undefined },
+  { route: '/__sitemap__/style.xsl', handler: _R6WqMb, lazy: false, middleware: false, method: undefined },
+  { route: '/sitemap.xml', handler: _M8Fdwq, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_eYzRWw, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
