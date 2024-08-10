@@ -1,11 +1,11 @@
-import { version, unref, inject, defineComponent, ref, provide, createElementBlock, h, computed, shallowReactive, watch, Suspense, nextTick, Fragment, Transition, hasInjectionContext, mergeProps, useSSRContext, createApp, effectScope, reactive, getCurrentScope, getCurrentInstance, onErrorCaptured, onServerPrefetch, createVNode, resolveDynamicComponent, toRef, shallowRef, isReadonly, withCtx, resolveComponent, createTextVNode, isRef, isShallow, isReactive, toRaw } from 'vue';
+import { version, defineComponent, ref, provide, createElementBlock, h, inject, computed, unref, shallowReactive, watch, Suspense, nextTick, Fragment, Transition, useSSRContext, hasInjectionContext, watchEffect, getCurrentInstance, mergeProps, resolveComponent, withCtx, createVNode, createApp, effectScope, reactive, getCurrentScope, onErrorCaptured, onServerPrefetch, resolveDynamicComponent, toRef, shallowRef, isReadonly, isRef, isShallow, isReactive, toRaw } from 'vue';
 import { $ as $fetch, l as defu, m as createHooks, h as createError$1, n as hasProtocol, o as isScriptProtocol, p as joinURL, w as withQuery, t as toRouteMatcher, q as createRouter$1, r as sanitizeStatusCode } from '../runtime.mjs';
 import { b as baseURL } from '../routes/renderer.mjs';
-import { getActiveHead, CapoPlugin } from 'unhead';
-import { defineHeadPlugin } from '@unhead/shared';
+import { CapoPlugin, getActiveHead } from 'unhead';
+import { defineHeadPlugin, composableNames, unpackMeta } from '@unhead/shared';
 import { useRoute as useRoute$1, RouterView, createMemoryHistory, createRouter, START_LOCATION } from 'vue-router';
 import VueSmoothScroll from 'vue3-smooth-scroll';
-import { ssrRenderSuspense, ssrRenderComponent, ssrRenderVNode, ssrRenderAttrs, ssrInterpolate } from 'vue/server-renderer';
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderSuspense, ssrRenderVNode } from 'vue/server-renderer';
 import 'node:http';
 import 'node:https';
 import 'fs';
@@ -509,6 +509,53 @@ function injectHead() {
     console.warn("Unhead is missing Vue context, falling back to shared context. This may have unexpected results.");
   return head || getActiveHead();
 }
+function useHead(input, options = {}) {
+  const head = options.head || injectHead();
+  if (head) {
+    if (!head.ssr)
+      return clientUseHead(head, input, options);
+    return head.push(input, options);
+  }
+}
+function clientUseHead(head, input, options = {}) {
+  const deactivated = ref(false);
+  const resolvedInput = ref({});
+  watchEffect(() => {
+    resolvedInput.value = deactivated.value ? {} : resolveUnrefHeadInput(input);
+  });
+  const entry2 = head.push(resolvedInput.value, options);
+  watch(resolvedInput, (e) => {
+    entry2.patch(e);
+  });
+  getCurrentInstance();
+  return entry2;
+}
+const coreComposableNames = [
+  "injectHead"
+];
+({
+  "@unhead/vue": [...coreComposableNames, ...composableNames]
+});
+function useSeoMeta(input, options) {
+  const { title, titleTemplate, ...meta } = input;
+  return useHead({
+    title,
+    titleTemplate,
+    // @ts-expect-error runtime type
+    _flatMeta: meta
+  }, {
+    ...options,
+    transform(t) {
+      const meta2 = unpackMeta({ ...t._flatMeta });
+      delete t._flatMeta;
+      return {
+        // @ts-expect-error runtime type
+        ...t,
+        meta: meta2
+      };
+    }
+  });
+}
 [CapoPlugin({ track: true })];
 const unhead_KgADcZ0jPj = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:head",
@@ -671,17 +718,17 @@ const _routes = [
   {
     name: "about",
     path: "/about",
-    component: () => import('./about-EWRxV0un.mjs').then((m) => m.default || m)
+    component: () => import('./about-Ce0gEOr8.mjs').then((m) => m.default || m)
   },
   {
     name: "catalog",
     path: "/catalog",
-    component: () => import('./catalog-B6DXeuYe.mjs').then((m) => m.default || m)
+    component: () => import('./catalog-CyAdEJzS.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
     path: "/",
-    component: () => import('./index-motrvhAj.mjs').then((m) => m.default || m)
+    component: () => import('./index-CP8QMVxn.mjs').then((m) => m.default || m)
   }
 ];
 const _wrapIf = (component, props, slots) => {
@@ -1339,7 +1386,7 @@ const _export_sfc = (sfc, props) => {
   return target;
 };
 const _sfc_main$2 = {};
-function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtLayout = __nuxt_component_0;
   const _component_NuxtPage = __nuxt_component_1;
   _push(ssrRenderComponent(_component_NuxtLayout, _attrs, {
@@ -1361,49 +1408,97 @@ _sfc_main$2.setup = (props, ctx) => {
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("app.vue");
   return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
 };
-const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender$1]]);
-const _sfc_main$1 = {
+const AppComponent = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["ssrRender", _sfc_ssrRender]]);
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  __name: "error",
+  __ssrInlineRender: true,
   props: {
     error: {
       type: Object,
-      default: () => ({ statusCode: 404 })
+      required: true
     }
-  }
-};
-function _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {
-  const _component_router_link = resolveComponent("router-link");
-  _push(`<div${ssrRenderAttrs(mergeProps({ class: "error-page" }, _attrs))} data-v-06c95173>`);
-  if ($props.error.statusCode === 404) {
-    _push(`<h1 data-v-06c95173>404 - Страница не найдена</h1>`);
-  } else {
-    _push(`<h1 data-v-06c95173>Ошибка: ${ssrInterpolate($props.error.statusCode)}</h1>`);
-  }
-  if ($props.error.statusCode === 404) {
-    _push(`<p data-v-06c95173>Извините, но страница, которую вы ищете, не существует.</p>`);
-  } else {
-    _push(`<!---->`);
-  }
-  _push(ssrRenderComponent(_component_router_link, { to: "/" }, {
-    default: withCtx((_, _push2, _parent2, _scopeId) => {
-      if (_push2) {
-        _push2(`Вернуться на главную`);
-      } else {
-        return [
-          createTextVNode("Вернуться на главную")
-        ];
+  },
+  setup(__props) {
+    useSeoMeta({
+      title: "Page not found",
+      description: "We are sorry but this page could not be found."
+    });
+    useHead({
+      htmlAttrs: {
+        lang: "en"
       }
-    }),
-    _: 1
-  }, _parent));
-  _push(`</div>`);
-}
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_Header = resolveComponent("Header");
+      const _component_UMain = resolveComponent("UMain");
+      const _component_UContainer = resolveComponent("UContainer");
+      const _component_UPage = resolveComponent("UPage");
+      const _component_UPageError = resolveComponent("UPageError");
+      const _component_Footer = resolveComponent("Footer");
+      const _component_UNotifications = resolveComponent("UNotifications");
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      _push(ssrRenderComponent(_component_Header, null, null, _parent));
+      _push(ssrRenderComponent(_component_UMain, null, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(ssrRenderComponent(_component_UContainer, null, {
+              default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                if (_push3) {
+                  _push3(ssrRenderComponent(_component_UPage, null, {
+                    default: withCtx((_3, _push4, _parent4, _scopeId3) => {
+                      if (_push4) {
+                        _push4(ssrRenderComponent(_component_UPageError, { error: __props.error }, null, _parent4, _scopeId3));
+                      } else {
+                        return [
+                          createVNode(_component_UPageError, { error: __props.error }, null, 8, ["error"])
+                        ];
+                      }
+                    }),
+                    _: 1
+                  }, _parent3, _scopeId2));
+                } else {
+                  return [
+                    createVNode(_component_UPage, null, {
+                      default: withCtx(() => [
+                        createVNode(_component_UPageError, { error: __props.error }, null, 8, ["error"])
+                      ]),
+                      _: 1
+                    })
+                  ];
+                }
+              }),
+              _: 1
+            }, _parent2, _scopeId));
+          } else {
+            return [
+              createVNode(_component_UContainer, null, {
+                default: withCtx(() => [
+                  createVNode(_component_UPage, null, {
+                    default: withCtx(() => [
+                      createVNode(_component_UPageError, { error: __props.error }, null, 8, ["error"])
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_Footer, null, null, _parent));
+      _push(ssrRenderComponent(_component_UNotifications, null, null, _parent));
+      _push(`</div>`);
+    };
+  }
+});
 const _sfc_setup$1 = _sfc_main$1.setup;
 _sfc_main$1.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("error.vue");
   return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
 };
-const ErrorComponent = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender], ["__scopeId", "data-v-06c95173"]]);
 const _sfc_main = {
   __name: "nuxt-root",
   __ssrInlineRender: true,
@@ -1432,7 +1527,7 @@ const _sfc_main = {
           if (unref(abortRender)) {
             _push(`<div></div>`);
           } else if (unref(error)) {
-            _push(ssrRenderComponent(unref(ErrorComponent), { error: unref(error) }, null, _parent));
+            _push(ssrRenderComponent(unref(_sfc_main$1), { error: unref(error) }, null, _parent));
           } else if (unref(islandContext)) {
             _push(ssrRenderComponent(unref(IslandRenderer), { context: unref(islandContext) }, null, _parent));
           } else if (unref(SingleRenderer)) {
@@ -1472,5 +1567,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, entry$1 as default, injectHead as i, resolveUnrefHeadInput as r };
+export { _export_sfc as _, entry$1 as default, useSeoMeta as u };
 //# sourceMappingURL=server.mjs.map

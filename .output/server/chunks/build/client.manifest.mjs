@@ -1,10 +1,10 @@
 const client_manifest = {
-  "_ewh4c-oj.js": {
+  "_C2RK3blD.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "ewh4c-oj.js",
+    "file": "C2RK3blD.js",
     "name": "logot",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
@@ -59,7 +59,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "C2I31WZN.js",
+    "file": "DSMA98XL.js",
     "name": "default",
     "src": "layouts/default.vue",
     "isDynamicEntry": true,
@@ -72,36 +72,27 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DkzdzrY4.js",
+    "file": "CZTo44QR.js",
     "name": "entry",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [
       "layouts/default.vue"
     ],
-    "css": [
-      "entry.D9NrO_pT.css"
-    ],
     "_globalCSS": true
-  },
-  "entry.D9NrO_pT.css": {
-    "file": "entry.D9NrO_pT.css",
-    "resourceType": "style",
-    "prefetch": true,
-    "preload": true
   },
   "pages/about.vue": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "Br44YqbW.js",
+    "file": "CULYBEQv.js",
     "name": "about",
     "src": "pages/about.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_ewh4c-oj.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_C2RK3blD.js"
     ]
   },
   "pages/catalog.vue": {
@@ -109,13 +100,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "-ftrMJTh.js",
+    "file": "CMREZObb.js",
     "name": "catalog",
     "src": "pages/catalog.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_ewh4c-oj.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_C2RK3blD.js"
     ]
   },
   "pages/index.vue": {
@@ -123,13 +114,13 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "DX_41NFy.js",
+    "file": "B43_diDd.js",
     "name": "index",
     "src": "pages/index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_ewh4c-oj.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_C2RK3blD.js"
     ],
     "assets": [
       "profile-female.DZ_b7O9G.png",
