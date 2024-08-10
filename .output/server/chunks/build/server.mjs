@@ -1089,7 +1089,8 @@ const plugins = [
   VueSmoothScroll_VbAQ3PEUo0
 ];
 const layouts = {
-  default: () => import('./default-B7HwlWaB.mjs').then((m) => m.default || m)
+  default: () => import('./default-B7HwlWaB.mjs').then((m) => m.default || m),
+  error: () => import('./error-DBrKFqY6.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
